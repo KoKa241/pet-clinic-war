@@ -141,7 +141,20 @@
   </dependencies>
 
   <build>
+    <finalName>petclinic</finalName>
     <plugins>
+    <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <server>tomcat-development-server</server>
+                    <!-- Укажите IP вашего Linux и порт Tomcat -->
+                    <url>http://192.168.0.114:8090/manager/text</url>
+                    <warFile>target/petclinic.war</warFile>
+                    <path>/petclinic</path>
+                </configuration>
+            </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
